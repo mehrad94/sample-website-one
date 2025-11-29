@@ -28,6 +28,7 @@ const Navbar = () => {
       setIsNavVisible(true);
       navContainerRef.current!.classList.add("floating-nav");
     }
+    setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const Navbar = () => {
   return (
     <div
       ref={navContainerRef}
-      className="fixed inset-x-0 top-4 z-50 h-16 border-none translate-x-0 duration-700 sm:inset-x-6"
+      className="fixed inset-x-0 top-4 z-50 h-16 border-none translate-all duration-700 sm:inset-x-6"
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
