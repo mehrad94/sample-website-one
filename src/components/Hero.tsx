@@ -1,8 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 import { useGSAP } from "@gsap/react";
@@ -11,20 +7,14 @@ import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] =
-    useState(1);
-  const [hasClicked, setHasClicked] =
-    useState(false);
-  const [isLoading, setIsLoading] =
-    useState(true);
-  const [loadedVideos, setLoadedVideos] =
-    useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [hasClicked, setHasClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedVideos, setLoadedVideos] = useState(0);
 
   const totalVideos = 4;
-  const nextVideoRef =
-    useRef<HTMLVideoElement>(null);
-  const upcomingVideoIndex =
-    (currentIndex % totalVideos) + 1;
+  const nextVideoRef = useRef<HTMLVideoElement>(null);
+  const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
   const handleMiniVideoClick = () => {
     setHasClicked(true);
@@ -32,8 +22,7 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    loadedVideos === totalVideos - 1 &&
-      setIsLoading(false);
+    loadedVideos === totalVideos - 1 && setIsLoading(false);
   }, [loadedVideos]);
 
   useGSAP(
@@ -72,13 +61,11 @@ const Hero = () => {
 
   useGSAP(() => {
     gsap.set("#video-frame", {
-      clipPath:
-        "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
+      clipPath: "polygon(14% 0%, 72% 0%, 90% 90%, 0% 100%)",
       borderRadius: "0 0 40% 10%",
     });
     gsap.from("#video-frame", {
-      clipPath:
-        "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       borderRadius: "0 0 0 0",
       ease: "power1.inOut",
       scrollTrigger: {
@@ -90,8 +77,7 @@ const Hero = () => {
     });
   });
 
-  const getVideoSrc = (index: number) =>
-    `videos/hero-${index}.mp4`;
+  const getVideoSrc = (index: number) => `videos/hero-${index}.mp4`;
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   };
@@ -123,9 +109,7 @@ const Hero = () => {
                 loop
                 muted
                 ref={nextVideoRef}
-                src={getVideoSrc(
-                  upcomingVideoIndex
-                )}
+                src={getVideoSrc(upcomingVideoIndex)}
                 id="current-video"
                 className="size-64 origin-center scale-150 object-cover object-center"
                 onLoadedData={handleVideoLoad}
@@ -142,11 +126,7 @@ const Hero = () => {
             onLoadedData={handleVideoLoad}
           />
           <video
-            src={getVideoSrc(
-              currentIndex === totalVideos - 1
-                ? 1
-                : currentIndex
-            )}
+            src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
             // autoPlay
             loop
             muted
@@ -163,8 +143,7 @@ const Hero = () => {
               Redefi<b>n</b>e
             </h1>
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Enter the Metagame Layer <br />{" "}
-              Unleash The Play Economy
+              Enter the Metagame Layer <br /> Unleash The Play Economy
             </p>
             <Button
               id="watch-trailer"

@@ -4,6 +4,7 @@ interface Props {
   id?: string;
   title: string;
   leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
   containerClass?: string;
   onClick?: () => void;
 }
@@ -12,6 +13,7 @@ const Button: React.FC<Props> = ({
   id,
   title,
   leftIcon,
+  rightIcon,
   containerClass = "",
   onClick,
 }) => {
@@ -25,6 +27,7 @@ const Button: React.FC<Props> = ({
       <span className="relative inline-flex overflow-hidden font-general text-xs uppercase">
         {title}
       </span>
+      {rightIcon && <span>{rightIcon}</span>}
     </button>
   );
 };
