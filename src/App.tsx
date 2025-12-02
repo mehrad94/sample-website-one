@@ -1,7 +1,10 @@
 import About from "./components/About.tsx";
+import Contact from "./components/Contact.tsx";
 import Features from "./components/Features.tsx";
+import Footer from "./components/Footer.tsx";
 import Hero from "./components/Hero.tsx";
 import Navbar from "./components/Navbar.tsx";
+import Story from "./components/Story.tsx";
 
 const App = () => {
   return (
@@ -10,6 +13,9 @@ const App = () => {
       <Hero />
       <About />
       <Features />
+      <Story />
+      <Contact />
+      <Footer />
     </main>
   );
 };
